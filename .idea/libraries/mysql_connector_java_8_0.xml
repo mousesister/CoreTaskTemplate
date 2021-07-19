@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java_8.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/download/mysql-connector-java_8.0.25-1debian10_all" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/download/mysql-connector-java_8.0.25-1debian10_all" recursive="false" />
+  </library>
+</component>

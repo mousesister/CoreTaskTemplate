@@ -8,33 +8,29 @@ import java.sql.SQLException;
 
 
 public class Util {
-    Connection conn;
-
     public Connection getConnection() {
-        return conn;
-    }
-
-    public Util()  {
+        Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection
                     ("jdbc:mysql://localhost:3306/test_one",
                             "admin", "POI456ert");
-            //conn.setAutoCommit(false);
+
             if (!conn.isClosed()) {
                 System.out.println("соединение с БД установлено!");
             }
 
 
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
-            System.out.println("JDBC драйвер для СУБД не найден!");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Ошибка SQL !");
+            System.out.println("с установкой соединения возникли проблемы");
 
         }
+        return conn;
+    }
+
+    public Util()  {
+
     }
 
 

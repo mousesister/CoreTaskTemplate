@@ -18,6 +18,7 @@ public class Util {
 
             if (!conn.isClosed()) {
                 System.out.println("соединение с БД установлено!");
+
             }
 
 

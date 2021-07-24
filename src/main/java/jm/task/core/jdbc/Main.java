@@ -1,26 +1,22 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.service.UserService;
-import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
-import jm.task.core.jdbc.util.Util;
+
 import java.sql.*;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws NullPointerException, SQLException {
-        Util util = new Util();
-        Connection conn = util.getConnection();
-        Statement stmt = conn.createStatement();
-
-        final UserService worker = new UserServiceImpl();
-        final User USER1 = new User("Jone", "Dow", (byte) 42);
+        final User USER1 = new User("John", "Dow", (byte) 42);
         final User USER2 = new User("Jane", "Dow", (byte) 51);
         final User USER3 = new User("Thomas", "Hanks", (byte) 65);
         final User USER4 = new User("Rita", "Hayworth", (byte) 103);
 
-        worker.createUsersTable();
+        final UserDao worker = new UserServiceImpl();
+
+       worker.createUsersTable();
 
         worker.saveUser(USER1.getName(), USER1.getLastName(), USER1.getAge());
         System.out.println("User с именем: " + USER1.getName() + " добавлен в базу данных");

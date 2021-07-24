@@ -1,12 +1,12 @@
 package jm.task.core.jdbc.service;
 
 
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
-import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
+//import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
+public class UserServiceImpl extends UserDaoHibernateImpl implements UserService {
 
 
     public void createUsersTable() throws SQLException {
@@ -29,7 +29,7 @@ public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
 
     }
 
-    public List<User> getAllUsers() throws SQLException {
+    public List getAllUsers() throws SQLException {
 
         return super.getAllUsers();
     }
